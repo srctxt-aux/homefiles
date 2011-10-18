@@ -1,0 +1,25 @@
+# .profile
+# ========
+#
+export QTDIR=$HOME/local/qt/qt
+export QMAKESPEC=$QTDIR/mkspecs/macx-g++
+
+export SAL=$HOME/sal/env
+
+# /usr PATH
+PATH="/sbin:/bin:/usr/bin:/usr/sbin:/usr/local/bin"
+
+
+# /opt
+PATH="$PATH:/opt/bin:/opt/local/bin"
+
+# sbin
+PATH=$HOME/sbin:$PATH
+
+
+export PATH
+
+
+export JAVA_HOME='/usr/lib/jvm/java-6-openjdk'
+#export JAVA_HOME='/usr/lib/jvm/java-6-sun'
+

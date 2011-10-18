@@ -1,0 +1,36 @@
+#!/bin/sh
+#
+# (c) ben, untar.org
+#
+
+PROG='del'
+TITEL='a less destructive rm'
+DESC='throws a deleted file in ~/trash/%timestamp%/'
+ARGS='[-h|--help] <file|dir>'
+
+set -e
+set -u
+
+usage() { echo "Usage: $PROG $ARGS"; exit 1; }
+
+[ $# = 1 ] || usage
+
+case "$1" in
+	-h|--help)
+        echo "Title: $PROG - $TITEL"
+        echo "Description: $DESC"
+        usage ;;
+	-*|--*) usage;;
+     *) break;;
+esac
+
+file="$1";  
+trash="$HOME/trash/$(date +"%S%M%H%m%d%y")"
+
+[ -f "$file" ] || [ -d "$file" ] ||  { 
+    echo "Error: $file not exist."; 
+    exit 1
+}
+[ -d "$trash" ] || mkdir -p "$trash"
+
+mv "$file" "$trash"/

@@ -1,0 +1,12 @@
+#!/bin/sh
+
+
+
+p='/usr/share/vim/vim72/macros/less.sh'
+if [ -f "$p" ] ; then
+    ${p}
+else
+    echo "Sorry the path to $p doesnt exist" 1>&2
+    exit 1
+fi
+

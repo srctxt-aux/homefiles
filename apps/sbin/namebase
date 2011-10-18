@@ -1,0 +1,6 @@
+#!/bin/sh
+
+fullfile="$1"
+filename=$(basename $fullfile)
+namebase=${filename%.*}
+echo "$namebase"

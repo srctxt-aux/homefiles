@@ -1,0 +1,36 @@
+#!/bin/sh
+set -e; set -u
+
+## getln - Get a line in a file
+# _____________________________
+#
+#     Copyright (c) Ben, srctxt.org
+#     dates: 10.03.2011|29.07.2011
+#     tags: scripts, sed
+#
+# Gets a specific line in a file
+
+OPTIONS='[-h|--help] linenumber filename'
+
+main () {
+    ln="$1"
+    file="$2"
+    sed -n ${ln},${ln}p $file
+}
+
+usage() {
+    printf "Usage: %s %s\n" `basename $0` "$OPTIONS"
+    exit 1;
+}
+
+
+[ $# = 2 ] || usage 
+
+case "$1" in
+	-h|--help) usage ;;
+	-*|--*)    usage;;
+     *) break;;
+esac
+
+main "$@"
+

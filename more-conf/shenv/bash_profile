@@ -1,0 +1,63 @@
+# Dotfiles - bash_profile
+# ***********************
+#
+#     Copyright (C) 2011 Ben, srctxt.org
+#     date: 2011-09-08
+#     tags: shell, bash
+
+# > How bashrc, bash_profile and profile relate.  <
+#
+#          * * *
+#                    
+
+# | The files
+# ===========
+# Bash_profile: calls bashrc and profile
+# Bashrc: bash related settings, interactive shell
+# Profile: PATH and stuff
+#
+# | Interactive non-login-shell
+# =============================
+#
+# eg. when a new terminal is opened.
+#
+# IF MACOSX THEN
+# 	execute ~/.bash_profile
+# ELSE 
+# 	  execute ~/.bashrc
+# END IF
+
+# | Interactive login-shell
+# =========================
+#
+# ~/.bash_profile
+#
+# execute /etc/profile
+# IF ~/.bash_profile exists THEN
+#  execute ~/.bash_profile
+# ELSE
+#    IF ~/.bash_login exist THEN
+#        execute ~/.bash_login
+#    ELSE
+#         execute ~/.profile
+#    END IF
+# END IF
+#
+# | Non-interactive login-shell
+# =============================
+#
+# ~/.bashrc
+#
+# Like in "ssh me@server.org 'echo hi'"
+# 
+# execute ~/.bashrc
+
+
+# Load .bashrc, containing non-login related bash initializations.
+#This file is sourced by bash when you log in interactively.
+
+# ~/.profile is called from ~/.bashrc (better control)
+[ -f ~/.bashrc ] && . ~/.bashrc
+
+
+

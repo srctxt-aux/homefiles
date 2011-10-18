@@ -1,0 +1,36 @@
+#!/bin/sh
+
+# ctar - Compress to tar.gz
+# ____________________________
+#  
+#     by: Ben, srctxt.org
+#     updated: 30.07.2011
+#     created: 10.03.2011
+#     tags: scripts | apt
+
+HELP="An alias for 'tar cfvz item.tar.gz item'"
+OPTIONS='[-h|--help] <file|dir>'
+
+usage() {
+    printf "Usage: %s %s\n" `basename $0` "$OPTIONS"
+    exit 1;
+}
+
+[ $# = 1 ] || usage
+
+case "$1" in
+	-h|--help)
+        echo "$HELP"
+        usage ;;
+	-*|--*) 
+        usage;;
+     *) 
+         break;;
+esac
+
+src="$1"
+target="${src}".tar.gz
+
+rm -f "$target"
+tar cfvz "$target" "$src"
+

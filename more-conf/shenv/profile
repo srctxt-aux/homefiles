@@ -1,0 +1,29 @@
+# .profile
+# ========
+
+
+PATH=
+
+# /(s)bin PATH
+PATH="/sbin:/bin"
+
+# /usr PATH
+PATH="$PATH:/usr/bin:/usr/sbin:/usr/local/bin"
+
+# /opt
+PATH="$PATH:/opt/bin:/opt/local/bin"
+
+# local
+PATH="$PATH:$HOME/shbin/bin"
+
+export PATH
+
+JAVA_HOME=
+osname=$(uname)
+if [ "$osname" = 'Darwin' ] ; then
+    JAVA_HOME="/Library/Java/Home"
+else
+    JAVA_HOME='/usr/lib/jvm/java-6-openjdk'
+fi
+export JAVA_HOME
+

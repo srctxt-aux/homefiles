@@ -1,0 +1,47 @@
+# I'm a bit cautious with aliases
+# - I'll not use them for complexer functions
+# - I'll not use them system or file edits
+# - I'll use them only for abbreviation command line tool startups
+
+
+osname=$(uname)
+
+
+alias d='dirs -v'
+alias l='ls'
+alias s='ls'
+alias sls='ls'
+# ped : a sed in perl
+alias ped='perl -i.bak -npe'
+
+alias pop='popd'
+alias push='pushd'
+alias stack='dirs -l'
+
+alias cls='clear'
+
+alias ll='ls -al'
+
+
+# grep
+alias glir='grep -lir'
+
+
+
+
+# start firefox
+
+alias ff='firefox'
+alias cp='cp -R'
+alias c='cd '
+alias home='cd ~'
+#alias lsl="echo shit"
+alias ..='cd ..'
+alias rm='rm -i'
+alias shortdate='date +"%Y-%m-%d"'
+alias vi='vim -c NERDTree'
+alias gvi='gvim --servername GVIM --remote-tab'
+#alias gvim="gvim 2> /dev/null"
+alias gvim='gvim --servername MIV --remote'
+alias tvim='gvim --servername localhost --remote-silent-tab 2>/dev/null'
+alias chmox='chmod 0755'

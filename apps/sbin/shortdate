@@ -1,0 +1,30 @@
+#!/bin/sh
+#
+# (c) ben, untar.org
+#
+
+PROG='shortdate'
+TITEL='prints out todays date'
+DESC='Prints out todays date in the form of yyyy-mm-dd'
+ARGS='[-h|--help]'
+
+set -e
+set -u
+
+usage() { echo "Usage: $PROG $ARGS"; exit 1; }
+
+
+if [ $# =  0 ] ; then
+    echo `date +"%Y-%m-%d"`
+else
+    case "$1" in
+        -h|--help)
+            echo "Title: $PROG - $TITEL"
+            echo "Description: $DESC"
+            usage ;;
+        -*|--*) usage;;
+         *) break;;
+    esac
+fi
+
+

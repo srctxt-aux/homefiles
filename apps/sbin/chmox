@@ -1,0 +1,28 @@
+#!/bin/sh
+#
+# (c) ben, untar.org
+#
+
+PROG='chmox'
+TITEL='make a file executable'
+DESC='just an alias for "chmod 0755 <file>"'
+ARGS='[-h|--help] <file>'
+
+set -e
+set -u
+
+usage() { echo "Usage: $PROG $ARGS"; exit 1; }
+
+[ $# = 1 ] || usage
+
+case "$1" in
+	-h|--help)
+        echo "Title: $PROG - $TITEL"
+        echo "Description: $DESC"
+        usage ;;
+	-*|--*) usage;;
+     *) break;;
+esac
+
+file="$1"
+chmod 0755 "$file"
